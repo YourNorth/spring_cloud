@@ -1,0 +1,9 @@
+### Send POST request with json body
+POST http://localhost:9191/orders/order
+Content-Type: application/json
+
+{
+  "name": "car",
+  "amount": 2,
+  "price": "1000"
+}
