@@ -4,6 +4,7 @@ import dev.yournorth.order.common.PaymentRequest;
 import dev.yournorth.order.common.PaymentResponse;
 import dev.yournorth.order.entities.Order;
 import dev.yournorth.order.repositories.OrderRep;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,13 +13,10 @@ public class OrderService {
     static final String BAD_PAYMENT_MSG = "Oops, smt goes wrong. Try to pay later";
     static final String GOOD_PAYMENT_MSG = "Payment successful!";
 
-    final OrderRep orderRep;
-    final RestTemplate restTemplate;
-
-    public OrderService(OrderRep orderRep, RestTemplate restTemplate) {
-        this.orderRep = orderRep;
-        this.restTemplate = restTemplate;
-    }
+    @Autowired
+    private OrderRep orderRep;
+    @Autowired
+    private RestTemplate restTemplate;
 
     public String makeOrder(Order order) {
         var savedOrder = orderRep.save(order);
@@ -27,7 +25,7 @@ public class OrderService {
                         .orderId(savedOrder.getId())
                         .price(order.getPrice())
                         .build();
-        var response = restTemplate.postForEntity("PAYMENT-SERVICE/payments/payment", paymentRequest, PaymentResponse.class);
+        var response = restTemplate.postForEntity("http://PAYMENT-SERVICE/payments/payment", paymentRequest, PaymentResponse.class);
         var paymentResponse = response.getBody();
         return checkPayment(paymentResponse);
     }
