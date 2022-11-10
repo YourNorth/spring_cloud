@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="spring_cloud" type="CompoundRunConfigurationType">
+  <configuration default="false" name="spring_cloud_with_tests" type="CompoundRunConfigurationType">
     <toRun name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" />
-    <toRun name="OrderApplication" type="SpringBootApplicationConfigurationType" />
     <toRun name="PaymentApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="OrderApplication" type="SpringBootApplicationConfigurationType" />
     <method v="2" />
   </configuration>
 </component>

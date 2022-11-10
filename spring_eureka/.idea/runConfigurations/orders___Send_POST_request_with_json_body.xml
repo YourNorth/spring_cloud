@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="orders | Send POST request with json body" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" nameIsGenerated="true" path="$PROJECT_DIR$/order/src/main/resources/orders.http" requestIdentifier="Send POST request with json body" runType="Run single request">
+    <method v="2" />
+  </configuration>
+</component>
