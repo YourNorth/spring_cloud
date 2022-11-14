@@ -25,7 +25,7 @@ public class OrderService {
                         .orderId(savedOrder.getId())
                         .price(order.getPrice())
                         .build();
-        var response = restTemplate.postForEntity("http://PAYMENT-SERVICE/payments/payment", paymentRequest, PaymentResponse.class);
+        var response = restTemplate.postForEntity("http://PAYMENT-SERVICE/payment/payment", paymentRequest, PaymentResponse.class);
         var paymentResponse = response.getBody();
         return checkPayment(paymentResponse);
     }

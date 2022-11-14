@@ -5,7 +5,7 @@ import dev.yournorth.order.services.OrderService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/orders")
+@RequestMapping(path = "/order")
 public class OrderController {
 
     final OrderService orderService;

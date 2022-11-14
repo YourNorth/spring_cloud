@@ -1,0 +1,12 @@
+### Post request to create order
+POST http://localhost:9189/order/order
+Content-Type: application/json
+
+{
+  "name": "car",
+  "amount": 2,
+  "price": "1000"
+}
+
+### Get request to check history of order
+GET http://localhost:9189/payment/1

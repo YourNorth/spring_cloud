@@ -1,5 +1,6 @@
 package dev.yournorth.payment.common;
 
+import dev.yournorth.payment.entities.Payment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

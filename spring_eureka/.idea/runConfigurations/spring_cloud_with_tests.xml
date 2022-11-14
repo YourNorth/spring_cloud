@@ -3,6 +3,7 @@
     <toRun name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" />
     <toRun name="PaymentApplication" type="SpringBootApplicationConfigurationType" />
     <toRun name="OrderApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="GatewayApplication" type="SpringBootApplicationConfigurationType" />
     <method v="2" />
   </configuration>
 </component>

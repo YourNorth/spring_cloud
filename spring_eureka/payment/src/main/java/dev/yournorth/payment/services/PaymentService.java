@@ -20,10 +20,8 @@ public class PaymentService {
 
     public PaymentResponse createPayment(PaymentRequest paymentRequest) {
         var payment = makePayment(paymentRequest);
-        return PaymentResponse.builder()
-                .status(payment.getStatus())
-                .orderId(paymentRequest.getOrderId())
-                .build();
+        paymentRep.save(payment);
+        return convertPaymentToResponse(payment);
     }
 
     private Payment makePayment(PaymentRequest paymentRequest) {
@@ -36,4 +34,16 @@ public class PaymentService {
         return paymentRep.save(payment);
     }
 
+    private PaymentResponse convertPaymentToResponse(Payment payment){
+        return PaymentResponse.builder()
+                .orderId(payment.getOrderId())
+                .status(payment.getStatus())
+                .build();
+    }
+
+    public PaymentResponse findByOrderId(Long id) {
+
+        var payment = paymentRep.findByOrderId(id);
+        return payment.map(this::convertPaymentToResponse).orElse(null);
+    }
 }
